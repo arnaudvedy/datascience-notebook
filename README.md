@@ -42,7 +42,7 @@ docker build --rm -t arnaudvedy/datascience-notebook .
 The following command starts a container with the Notebook server listening for HTTP connections on port 8888 without authentication configured.
 
 ```
-docker run -d -p 8888:8888 jupyter/datascience-notebook
+docker run -d -p 8888:8888 arnaudvedy/datascience-notebook
 ```
 
 ## Docker Options
@@ -102,7 +102,7 @@ conda install -n python3 some-package
 
 ```python
 # Spawn user containers from this image
-c.DockerSpawner.container_image = 'jupyter/datascience-notebook'
+c.DockerSpawner.container_image = 'arnaudvedy/datascience-notebook'
 
 # Have the Spawner override the Docker run command
 c.DockerSpawner.extra_create_kwargs.update({
@@ -115,7 +115,7 @@ c.DockerSpawner.extra_create_kwargs.update({
 The `start.sh` script supports the same features as the default `start-notebook.sh` script (e.g., `GRANT_SUDO`), but allows you to specify an arbitrary command to execute. For example, to run the text-based `ipython` console in a container, do the following:
 
 ```
-docker run -it --rm jupyter/datascience-notebook start.sh ipython
+docker run -it --rm arnaudvedy/datascience-notebook start.sh ipython
 ```
 
 This script is particularly useful when you derive a new Dockerfile from this image and install additional Jupyter applications with subcommands like `jupyter console`, `jupyter kernelgateway`, and `jupyter lab`.
